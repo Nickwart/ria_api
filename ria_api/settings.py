@@ -22,6 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-5w8!i^v*g$c6l7164_p4!0oi$iw4wu=6zdt42!21!x-d=7&1&k'
 RIA_API_KEY = 'qjIkXEx4TqsfHJYurkpBFAOSRNuzXtroKCHQ3oYJ'
+RIA_USER_ID = '9210075'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

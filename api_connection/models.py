@@ -10,12 +10,14 @@ class Categories(models.Model):
 # Типи кузова
 class Body(models.Model):
     objects = models.Manager()
+    # category = models.ForeignKey(Categories, on_delete=models.CASCADE)
     name = models.CharField(max_length=25)
     ria_id = models.IntegerField()
 
 
 class Brand(models.Model):
     objects = models.Manager()
+    # category = models.ManyToManyField(Categories)
     name = models.CharField(max_length=25)
     ria_id = models.IntegerField()
 
@@ -41,6 +43,7 @@ class Region(models.Model):
 
 class City(models.Model):
     objects = models.Manager()
+    # region = models.ForeignKey(Categories, on_delete=models.CASCADE)
     name = models.CharField(max_length=25)
     ria_id = models.IntegerField()
 
@@ -54,6 +57,7 @@ class Gearbox(models.Model):
 # тип приводу
 class Drive(models.Model):
     objects = models.Manager()
+    # category = models.ForeignKey(Categories, on_delete=models.CASCADE)
     name = models.CharField(max_length=25)
     ria_id = models.IntegerField()
 
@@ -91,6 +95,8 @@ class Car(models.Model):
     category = models.ForeignKey(Categories, on_delete=models.CASCADE)
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
     model = models.ForeignKey(CarModel, on_delete=models.CASCADE)
+    # # like verbose name
+    # modification = models.CharField(max_length=35)
     # тип кузова
     body = models.ForeignKey(Body, on_delete=models.CASCADE)
     mileage = models.IntegerField(blank=False)
@@ -118,10 +124,13 @@ class Car(models.Model):
     doors = models.IntegerField(blank=True)
     seats = models.IntegerField(blank=True)
     country = models.ForeignKey(Country, on_delete=models.CASCADE)
+
+    # переіменувати і зробити міграції
     spareParts = models.BooleanField(default=False, blank=True)
 
 
 class Description(models.Model):
+    objects = models.Manager()
     car = models.OneToOneField(to=Car, on_delete=models.CASCADE)
     ua = models.CharField(max_length=2000)
     ru = models.CharField(max_length=2000)
