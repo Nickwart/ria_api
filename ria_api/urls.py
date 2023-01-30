@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from api_connection.views import GetCarView
+from api_connection.views import PublishCar, GetCarData
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/car/', GetCarView.as_view()),
+    path('api/car/', PublishCar.as_view()),
+    path('api/car/public/', GetCarData.as_view()),
 ]

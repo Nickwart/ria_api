@@ -12,8 +12,9 @@ from api_connection.models import (
     Drive,
     Fuel,
     Color,
-    Country,
-    Description
+    Description,
+    Options,
+    Photo,
 )
 
 
@@ -29,5 +30,6 @@ admin.site.register(Gearbox)
 admin.site.register(Drive)
 admin.site.register(Fuel)
 admin.site.register(Color)
-admin.site.register(Country)
 admin.site.register(Description)
+admin.site.register(Options)
+admin.site.register(Photo)
